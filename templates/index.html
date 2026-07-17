@@ -8,9 +8,9 @@
     <body>
         <main>
             <div class="formulario-cadastro">
-                <form>
+                <form action="/cadastro" method="POST">
                     <label for="nome-user">Nome:</label>
-                    <input type="text" name="nome" id="nome-user" placeholder="Exemplo: Maria">
+                    <input type="text" name="nome" id="nome-user">
                     <br><br>
                     <label for="estados">Estado</label>
                     <select name="estados" id="estados">
@@ -44,22 +44,30 @@
                         <option value="TO">Tocantins</option>
                     </select>
                     <br><br>
-                    <label for="cidades">Cidade</label>
+                    <label for="cidades">Cidade:</label>
                     <select name="cidades" id="cidades">
                         <option value="" disabled selected>Selecione um estado</option>
                     </select>
+                    <label for="salario"></label>
+                    <select name="salario" id="salario">
+                        <option value="classe-e">Até 2 salários mínimos</option>
+                        <option value="classe-d">Mais de 2 a 4 salários mínimos</option>
+                        <option value="classe-c">Mais de 4 a 10 salários mínimos</option>
+                        <option value="classe-b">Mais de 10 a 20 salários mínimos</option>
+                        <option value="classe-a">Acima de 20 salários mínimos</option>
+                    </select>
+                    <p>*Usamos essa informação apenas para entender o perfil socioeconômico da nossa amostra, de forma anônima</p>
+                    <label for="departamento">Departamento:</label>
+                    <input type="text" id="departamento" placeholder="Ex: Recursos Humanos">
                 </form>
             </div>
             <div class="buscar-id">
-                <form>
+                <form action="/buscar" method="GET">
 
                 </form>
             </div>
             <div class="tabela-registros">
-
-            </div>
-            <div class="exportar-csv">
-
+                
             </div>
         </main>
     </body>

@@ -1,9 +1,13 @@
 // Select de municípios
 
+// Armazena os selects
 const selectEstados = document.getElementById('estados')
 const selectMunicipios = document.getElementById('cidades')
+
+// Array vazio de cidades de cada estado
 let cidadesPorEstado = {}
 
+// Função assíncrona para carregar municipios.json
 async function carregarDados() {
     try {
         const resposta = await fetch('municipios.json')
@@ -18,6 +22,7 @@ async function carregarDados() {
     }
 }
 
+// Detecta o estado selecionado pelo usuário
 selectEstados.addEventListener('change', function () {
     const estadoSelecionado = this.value
     selectMunicipios.innerHTML = '<option value="" disabled selected>Selecione um município</option>'
@@ -34,9 +39,9 @@ selectEstados.addEventListener('change', function () {
             fragment.appendChild(option)
         })
         selectMunicipios.appendChild(fragment)
-    } else {
-        selectMunicipios.disabled = true
-    }
+        
+    } else selectMunicipios.disabled = true
+    
 })
 
 carregarDados()
