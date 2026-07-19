@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8">
+        <title>Registrador</title>
+        <script src="/static/js/main.js" defer></script>
+    </head>
+    <body>
+        <main>
+            <div class="formulario-cadastro">
+                <p>Formulário de Cadastro</p>
+                <form id="cadastro" action="/cadastro" method="POST">
+                    <label for="nome-user">Nome:</label>
+                    <input type="text" name="nome" id="nome">
+                    <br><br>
+                    <label for="estados">Estado</label>
+                    <select name="estados" id="estados">
+                        <option value="" disabled selected>Selecione um estado</option>
+                        <option value="AC">Acre</option>
+                        <option value="AL">Alagoas</option>
+                        <option value="AM">Amazonas</option>
+                        <option value="AP">Amapá</option>
+                        <option value="BA">Bahia</option>
+                        <option value="CE">Ceará</option>
+                        <option value="DF">Distrito Federal</option>
+                        <option value="ES">Espírito Santo</option>
+                        <option value="GO">Goiás</option>
+                        <option value="MA">Maranhão</option>
+                        <option value="MG">Minas Gerais</option>
+                        <option value="MS">Mato Grosso do Sul</option>
+                        <option value="MT">Mato Grosso</option>
+                        <option value="PA">Pará</option>
+                        <option value="PB">Paraíba</option>
+                        <option value="PE">Pernambuco</option>
+                        <option value="PI">Piauí</option>
+                        <option value="PR">Paraná</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="RN">Rio Grande do Norte</option>
+                        <option value="RO">Rondônia</option>
+                        <option value="RR">Roraima</option>
+                        <option value="RS">Rio Grande do Sul</option>
+                        <option value="SC">Santa Catarina</option>
+                        <option value="SE">Sergipe</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="TO">Tocantins</option>
+                    </select>
+                    <br><br>
+                    <label for="cidades">Cidade:</label>
+                    <select name="cidades" id="cidades">
+                        <option value="" disabled selected>Selecione um estado</option>
+                    </select>
+                    <br><br>
+                    <label for="salario">Salário:</label>
+                    <select name="salario" id="salario">
+                        <option value="classe-e">Até 2 salários mínimos</option>
+                        <option value="classe-d">Mais de 2 a 4 salários mínimos</option>
+                        <option value="classe-c">Mais de 4 a 10 salários mínimos</option>
+                        <option value="classe-b">Mais de 10 a 20 salários mínimos</option>
+                        <option value="classe-a">Acima de 20 salários mínimos</option>
+                    </select>
+                    <p>*Usamos essa informação apenas para entender o perfil socioeconômico da nossa amostra, de forma anônima</p>
+                    <label for="departamento">Departamento:</label>
+                    <input type="text" name="departamento" id="departamento" placeholder="Ex: Recursos Humanos">
+                    <br><br>
+                    <button type="submit" id="btn-cadastrar" name="btn-cadastrar">Cadastrar</button>
+                </form>
+            </div>
+            <div id="resultado"></div>
+            <div class="buscar-id">
+                <p>Buscar por id</p>
+                <form action="/buscar" method="GET">
+                    <label for="texto-id">Id:</label>
+                    <input type="text" id="texto-id" name="texto-id">
+                    <button type="submit" id="btn-buscar" name="btn-cadastrar">Buscar</button>
+                </form>
+            </div>
+            <div class="tabela-registros">
+                <p>Tabela de Registro</p>
+            </div>
+        </main>
+    </body>
+</html>
