@@ -37,6 +37,7 @@ def cadastro():
     return f"""
         <p>Cadastro realizado com sucesso!</p>
         <p>Seu id: {id}</p>
+        <br><br>
     """
 
 
