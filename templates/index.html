@@ -8,9 +8,9 @@
     <body>
         <main>
             <div class="formulario-cadastro">
-                <form action="/cadastro" method="POST">
+                <form id="cadastro" action="/cadastro" method="POST">
                     <label for="nome-user">Nome:</label>
-                    <input type="text" name="nome" id="nome-user">
+                    <input type="text" name="nome" id="nome">
                     <br><br>
                     <label for="estados">Estado</label>
                     <select name="estados" id="estados">
@@ -48,7 +48,8 @@
                     <select name="cidades" id="cidades">
                         <option value="" disabled selected>Selecione um estado</option>
                     </select>
-                    <label for="salario"></label>
+                    <br><br>
+                    <label for="salario">Salário:</label>
                     <select name="salario" id="salario">
                         <option value="classe-e">Até 2 salários mínimos</option>
                         <option value="classe-d">Mais de 2 a 4 salários mínimos</option>
@@ -58,9 +59,12 @@
                     </select>
                     <p>*Usamos essa informação apenas para entender o perfil socioeconômico da nossa amostra, de forma anônima</p>
                     <label for="departamento">Departamento:</label>
-                    <input type="text" id="departamento" placeholder="Ex: Recursos Humanos">
+                    <input type="text" name="departamento" id="departamento" placeholder="Ex: Recursos Humanos">
+                    <br><br>
+                    <button type="submit" id="btn-cadastrar" name="btn-cadastrar">Cadastrar</button>
                 </form>
             </div>
+            <div id="resultado"></div>
             <div class="buscar-id">
                 <form action="/buscar" method="GET">
 
