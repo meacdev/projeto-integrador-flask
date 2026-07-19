@@ -8,6 +8,7 @@
     <body>
         <main>
             <div class="formulario-cadastro">
+                <p>Formulário de Cadastro</p>
                 <form id="cadastro" action="/cadastro" method="POST">
                     <label for="nome-user">Nome:</label>
                     <input type="text" name="nome" id="nome">
@@ -66,12 +67,15 @@
             </div>
             <div id="resultado"></div>
             <div class="buscar-id">
+                <p>Buscar por id</p>
                 <form action="/buscar" method="GET">
-
+                    <label for="texto-id">Id:</label>
+                    <input type="text" id="texto-id" name="texto-id">
+                    <button type="submit" id="btn-buscar" name="btn-cadastrar">Buscar</button>
                 </form>
             </div>
             <div class="tabela-registros">
-                
+                <p>Tabela de Registro</p>
             </div>
         </main>
     </body>
