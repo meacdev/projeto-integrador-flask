@@ -9,7 +9,7 @@
         <main>
             <div class="formulario-cadastro">
                 <p>Formulário de Cadastro</p>
-                <form id="cadastro" action="/cadastro" method="POST">
+                <form id="cadastro" action="/registro" method="POST">
                     <label for="nome-user">Nome:</label>
                     <input type="text" name="nome" id="nome">
                     <br><br>
@@ -65,17 +65,50 @@
                     <button type="submit" id="btn-cadastrar" name="btn-cadastrar">Cadastrar</button>
                 </form>
             </div>
-            <div id="resultado"></div>
+            <div id="resultado-cadastro"></div>
             <div class="buscar-id">
                 <p>Buscar por id</p>
-                <form action="/buscar" method="GET">
+                <form id="buscar" action="/registro" method="GET">
                     <label for="texto-id">Id:</label>
                     <input type="text" id="texto-id" name="texto-id">
                     <button type="submit" id="btn-buscar" name="btn-cadastrar">Buscar</button>
                 </form>
             </div>
+            <div id="resultado-busca"></div>
             <div class="tabela-registros">
                 <p>Tabela de Registro</p>
+                <table>
+                    <tr>
+                        <th>ID</th>
+                        <th>NOME</th>
+                        <th>CIDADE</th>
+                        <th>SALÁRIO</th>
+                        <th>DEPARTAMENTO</th>
+                    </tr>
+                    {%for linha in dados%}
+                    <tr>
+                        <td>{{linha["id"]}}</td>
+                        <td>{{linha["nome"]}}</td>
+                        <td>{{linha["cidade"]}}</td>
+                        <td>{{linha["salario"]}}</td>
+                        <td>{{linha["departamento"]}}</td>
+                        <td><button type="button" id="btn-editar" name="btn-editar" data-id="{{linha['id']}}">Editar</button></td>
+                        <td><button type="button" id="btn-deletar" name="btn-editar" data-id="{{linha['id']}}">Deletar</button></td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                <br>
+                {% if pagina > 1 %}
+                    <a href="/?pagina={{pagina-1}}"> ← Anterior </a>
+                {% endif %}
+
+                &nbsp;&nbsp;
+                    Página {{pagina}}
+                &nbsp;&nbsp;
+
+                {% if pagina < total_paginas %}
+                    <a href="/?pagina={{pagina+1}}"> Próxima → </a>
+                {% endif %}
             </div>
         </main>
     </body>

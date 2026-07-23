@@ -46,21 +46,70 @@ selectEstados.addEventListener('change', function () {
 
 carregarDados();
 
-// Return depois do submit
+/////////////////////// CRUD ///////////////////////
+
+// 1. CREATE
+
+async function criarRegistro(e){
+    e.preventDefault();
+    try {
+        const form = e.target;
+        const dados = new FormData(form);
+
+        const resposta = await fetch("/registro", {
+            method: "POST",
+            body: dados
+        });
+        
+        const html = await resposta.text();
+        document.getElementById("resultado-cadastro").innerHTML = html;
+        form.reset();
+        
+    } catch (error){
+        console.error("Falha ao cadastrar", error);
+        document.getElementById("resultado-cadastro").innerHTML = "<p>Algo deu errado :(</p>";
+    };
+    
+};
 
 form_cadastro = document.getElementById("cadastro");
+if (form_cadastro) form_cadastro.addEventListener("submit", criarRegistro);
 
-form_cadastro.addEventListener("submit", async function(e){
+// 2. READ
+
+async function buscarRegistro(e) {
     e.preventDefault();
-    const form = e.target;
-    const dados = new FormData(form);
 
-    const resposta = await fetch("/cadastro", {
-        method: "POST",
-        body: dados
-    });
+    try{
+     const id = document.getElementById("texto-id").value;
 
-    const html = await resposta.text(); // pega o HTML puro, não JSON
-    document.getElementById("resultado").innerHTML = html;
-    form.reset();
+        const resposta = await fetch("/registro?texto-id=" + encodeURIComponent(id), {
+            method: "GET"
+        });
+
+        if (!resposta.ok) {
+            throw new Error(`Erro na busca: ${resposta.status}`);
+        }
+
+        const html = await resposta.text();
+        document.getElementById("resultado-busca").innerHTML = html;
+
+    } catch (error) {
+        console.error("Falha ao buscar registro");
+        document.getElementById("resultado-busca").innerHTML = "<p>Algo deu errado :(</p>"
+    }
+};
+
+form_buscar = document.getElementById("buscar");
+if (form_buscar) form_buscar.addEventListener("submit", buscarRegistro);
+
+// 3. UPDATE
+
+function editarRegistro(){
+    const id = botao.dataset.id;
+    
+};
+
+document.querySelectorAll(".btn-editar").forEach(botao =>{
+    botao.addEventListener("click", editarRegistro());
 });
